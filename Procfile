@@ -1,1 +1,1 @@
-web: rails server -p $PORT -b 0.0.0.0
+web: bundle exec puma -p $PORT -e $RACK_ENV config.ru
