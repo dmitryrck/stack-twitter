@@ -1,0 +1,8 @@
+<%= form_for @account, url: search_path do |f| %>
+  <p>
+    <%= f.label :username %>
+    <%= f.text_field :username, autofocus: true %>
+  </p>
+
+  <%= f.submit 'Search' %>
+<% end %>
