@@ -15,8 +15,8 @@ class TwitterController < ApplicationController
   end
 
   def tweets(account)
-    TwitterCache.get(account.username) do
-      TwitterSearcher.search!(account)
+    Cache.get(account.username) do
+      Searcher.search!(account)
     end
   end
 end

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-describe TwitterSearcher do
+describe Searcher do
   context 'when arg is a object that does not respond to username' do
     subject do
-      TwitterSearcher.new('something')
+      Searcher.new('something')
     end
 
     it 'should return a empty array' do
@@ -13,7 +13,7 @@ describe TwitterSearcher do
 
   context 'when arg is a object that has no account' do
     subject do
-      TwitterSearcher.new(Account.new)
+      Searcher.new(Account.new)
     end
 
     it 'should return a empty array' do
@@ -23,7 +23,7 @@ describe TwitterSearcher do
 
   context 'when arg is a object with username' do
     subject do
-      TwitterSearcher.new(account)
+      Searcher.new(account)
     end
 
     let(:account) do

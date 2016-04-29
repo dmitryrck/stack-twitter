@@ -1,4 +1,4 @@
-class TwitterCache
+class Cache
   class << self
     def redis
       @@redis

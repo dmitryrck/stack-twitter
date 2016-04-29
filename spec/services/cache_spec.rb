@@ -1,12 +1,12 @@
 require 'rails_helper'
 
-describe TwitterCache do
+describe Cache do
   before do
-    allow(TwitterCache.redis).to receive(:get).and_return(cached)
+    allow(Cache.redis).to receive(:get).and_return(cached)
   end
 
   subject do
-    TwitterCache.get('john') do
+    Cache.get('john') do
       [tweet]
     end
   end
@@ -35,13 +35,13 @@ describe TwitterCache do
     end
 
     it 'should call the block' do
-      allow(TwitterCache.redis).to receive(:setex).and_return(true)
+      allow(Cache.redis).to receive(:setex).and_return(true)
 
       expect(subject).to eq [tweet]
     end
 
     it 'should call the block' do
-      expect(TwitterCache.redis).to receive(:setex).and_return(true)
+      expect(Cache.redis).to receive(:setex).and_return(true)
 
       subject
     end

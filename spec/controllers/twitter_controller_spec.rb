@@ -9,7 +9,7 @@ describe TwitterController do
 
   context 'POST search' do
     it 'return from cache' do
-      allow(TwitterCache).to receive(:get).with('twitter').and_return([])
+      allow(Cache).to receive(:get).with('twitter').and_return([])
 
       post :search, account: { username: 'twitter' }
 

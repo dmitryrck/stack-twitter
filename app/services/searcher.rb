@@ -1,4 +1,4 @@
-class TwitterSearcher
+class Searcher
   attr_reader :account
 
   LIMIT = 25
