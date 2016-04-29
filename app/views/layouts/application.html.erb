@@ -29,13 +29,18 @@
             <li class="active"><%= link_to 'Home', root_path %></li>
           </ul>
 
-          <%= form_for @account, url: search_path, html: { class: 'navbar-form navbar-right', role: 'search' } do |f| %>
+          <%= form_for @account, url: search_path, html: { class: 'navbar-form navbar-left', role: 'search' } do |f| %>
             <div class="form-group">
               <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'username' %>
             </div>
 
             <%= f.submit 'Search', class: 'btn btn-default' %>
           <% end %>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to current_user.email, '' %></li>
+            <li><%= link_to 'Logout', destroy_user_session_path %></li>
+          </ul>
 
         </div><!--/.nav-collapse -->
       </div>

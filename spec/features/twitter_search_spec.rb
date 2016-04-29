@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 describe 'Twitter' do
+  before do
+    sign_in user
+  end
+
+  let(:user) do
+    User.create email: 'user@example.com', password: 'secret'
+  end
+
   it 'should be able to search using the form' do
     VCR.use_cassette('search-twitter-timeline') do
       visit root_path
