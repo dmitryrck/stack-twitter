@@ -5,11 +5,18 @@ class TwitterController < ApplicationController
 
   def search
     @account = Account.new account_params
-    searcher = TwitterSearcher.new(@account)
-    @account.tweets = searcher.search!
+    @account.tweets = tweets(@account)
   end
+
+  protected
 
   def account_params
     params.require(:account).permit(:username)
+  end
+
+  def tweets(account)
+    TwitterCache.get(account.username) do
+      TwitterSearcher.search!(account)
+    end
   end
 end

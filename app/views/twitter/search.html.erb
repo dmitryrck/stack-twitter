@@ -1,14 +1,12 @@
 <div class="list-group">
-  <% cache(@account.username, :expires_in => 1.hour) do %>
-    <% @account.tweets.each do |tweet| %>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <%= tweet.user.screen_name %> - <%= time_tag tweet.created_at, class: :timeago %>
-        </div>
-        <div class="panel-body">
-          <%= replace_mentions tweet.text %>
-        </div>
+  <% @account.tweets.each do |tweet| %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <%= time_tag tweet.created_at, class: :timeago %>
       </div>
-    <% end %>
+      <div class="panel-body">
+        <%= replace_mentions tweet.text %>
+      </div>
+    </div>
   <% end %>
 </div>

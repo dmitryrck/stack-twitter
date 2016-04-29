@@ -13,6 +13,10 @@ class TwitterSearcher
     end
   end
 
+  def self.search!(account)
+    new(account).search!
+  end
+
   def initialize(account)
     @account = account
   end

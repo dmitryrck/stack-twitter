@@ -3,7 +3,7 @@
 To deploy:
 
     % heroku create
-    % heroku addons:create memcachedcloud:30
+    % heroku addons:create redistogo:nano
     % git push heroku master
     % heroku run rake db:migrate
 

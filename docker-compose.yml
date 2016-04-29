@@ -5,12 +5,18 @@ postgres:
   expose:
     - '5432'
 
+redis:
+  image: redis
+  expose:
+    - "6379"
+
 web:
   build: .
   volumes:
     - .:/app
   links:
     - postgres
+    - redis
   ports:
     - "3000:3000"
   command: "foreman start"
