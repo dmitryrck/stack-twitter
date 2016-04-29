@@ -19,3 +19,8 @@ group :test do
   gem 'vcr'
   gem 'webmock'
 end
+
+source 'http://rails-assets.org' do
+  gem 'rails-assets-bootstrap'
+  gem 'rails-assets-jquery-timeago'
+end

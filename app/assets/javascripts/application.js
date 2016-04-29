@@ -12,4 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap
+//= require jquery-timeago/jquery.timeago
+//= require_self
+
+$("time.timeago").timeago();

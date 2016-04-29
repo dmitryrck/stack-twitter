@@ -1,0 +1,8 @@
+<div class="list-group">
+  <% @account.tweets.each do |tweet| %>
+    <a href="" class="list-group-item">
+      <h4 class="list-group-item-heading"><%= tweet.user.screen_name %> - <%= time_tag tweet.created_at, class: :timeago %></h4>
+      <p class="list-group-item-text"><%= tweet.text %></p>
+    </a>
+  <% end %>
+</div>

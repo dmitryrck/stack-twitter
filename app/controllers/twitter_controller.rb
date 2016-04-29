@@ -5,7 +5,8 @@ class TwitterController < ApplicationController
 
   def search
     @account = Account.new account_params
-    render 'index'
+    searcher = TwitterSearcher.new(@account)
+    @account.tweets = searcher.search!
   end
 
   def account_params

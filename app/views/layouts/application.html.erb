@@ -1,14 +1,49 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>StackTwitter</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<%= yield %>
+    <title>Twitter Search Sample 3000 Plus :)</title>
 
-</body>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+  </head>
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <%= link_to 'Twitter Searcher', root_path, class: 'navbar-brand' %>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><%= link_to 'Home', root_path %></li>
+          </ul>
+
+          <%= form_for @account, url: search_path, html: { class: 'navbar-form navbar-right', role: 'search' } do |f| %>
+            <div class="form-group">
+              <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'username' %>
+            </div>
+
+            <%= f.submit 'Search', class: 'btn btn-default' %>
+          <% end %>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div> <!-- /container -->
+    <%= javascript_include_tag 'application' %>
+  </body>
 </html>
