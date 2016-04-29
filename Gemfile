@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.3.0'
+
 gem 'rails', '4.2.6'
 
 gem 'coffee-rails', '~> 4.1.0'
@@ -21,6 +23,10 @@ group :test do
   gem 'poltergeist'
   gem 'vcr'
   gem 'webmock'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 
 source 'http://rails-assets.org' do
