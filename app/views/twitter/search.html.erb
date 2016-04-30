@@ -5,7 +5,7 @@
         <%= time_tag tweet.created_at, class: :timeago %>
       </div>
       <div class="panel-body">
-        <%= replace_mentions tweet.text %>
+        <%= formatted_tweet_text tweet.text %>
       </div>
     </div>
   <% end %>
