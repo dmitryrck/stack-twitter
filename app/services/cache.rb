@@ -1,4 +1,6 @@
 class Cache
+  CACHE_TIME = 18_000
+
   class << self
     def redis
       @@redis
@@ -17,7 +19,7 @@ class Cache
     else
       tweets = block.call
 
-      redis.setex(username, (5 * 60 * 60), Marshal.dump(turn_cachable_tweets(tweets)))
+      redis.setex(username, CACHE_TIME, Marshal.dump(turn_cachable_tweets(tweets)))
 
       tweets
     end
