@@ -13,6 +13,8 @@ You can test: [Heroku](http://protected-journey-74325.herokuapp.com).
 
 To build using [docker-compose](https://docs.docker.com/compose/):
 
+   % cp .env.sample .env
+   % cp config/database.yml.sample config/database.yml
    % docker-compose build
    % docker-compose run web rake db:create
    % docker-compose run web rake db:migrate
