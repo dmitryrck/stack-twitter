@@ -24,7 +24,8 @@ group :development, :test do
 end
 
 group :test do
-  gem 'poltergeist'
+  gem 'capybara'
+  gem 'selenium-webdriver'
   gem 'vcr'
   gem 'webmock'
 end
@@ -33,7 +34,9 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'sprockets-es6'
 source 'http://rails-assets.org' do
   gem 'rails-assets-bootstrap'
   gem 'rails-assets-jquery-timeago'
+  gem 'rails-assets-react'
 end

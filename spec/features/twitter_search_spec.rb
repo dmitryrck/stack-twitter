@@ -9,10 +9,11 @@ describe 'Twitter' do
     User.create email: 'user@example.com', password: 'secret'
   end
 
-  it 'should be able to search using the form' do
+  it 'should be able to search using the form', js: true do
     VCR.use_cassette('search-twitter-timeline') do
       visit root_path
 
+      expect(page).to have_field 'account_username'
       fill_in 'account_username', with: 'twitter'
 
       click_on 'Search'

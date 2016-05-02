@@ -5,9 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Twitter Search Sample 3000 Plus :)</title>
+    <title>Stack-Twitter</title>
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
 
@@ -29,24 +30,16 @@
             <li class="active"><%= link_to 'Home', root_path %></li>
           </ul>
 
-          <%= form_for @account, url: search_path, html: { class: 'navbar-form navbar-left', role: 'search' } do |f| %>
-            <div class="form-group">
-              <%= f.text_field :username, autofocus: true, class: 'form-control', placeholder: 'username' %>
-            </div>
-
-            <%= f.submit 'Search', class: 'btn btn-default' %>
-          <% end %>
-
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to current_user.email, '' %></li>
             <li><%= link_to 'Logout', destroy_user_session_path %></li>
           </ul>
-
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
+      <div id="content"></div>
       <%= yield %>
     </div> <!-- /container -->
     <%= javascript_include_tag 'application' %>

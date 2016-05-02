@@ -11,9 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
-//= require bootstrap
 //= require jquery-timeago/jquery.timeago
+//= require react/react
+//= require react/react-dom
+//= require components
 //= require_self
-
-$("time.timeago").timeago();

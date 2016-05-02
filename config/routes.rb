@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   root 'twitter#index'
 
-  post 'twitter/search', to: 'twitter#search', as: :search
+  post 'api/search', to: 'api/search#by_username', as: :search
 end
