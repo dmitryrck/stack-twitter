@@ -5,6 +5,10 @@ describe Cache do
     allow(Cache.redis).to receive(:get).and_return(cached)
   end
 
+  let(:cached) do
+    nil
+  end
+
   subject do
     Cache.get('john') do
       [tweet]
@@ -45,5 +49,9 @@ describe Cache do
 
       subject
     end
+  end
+
+  it 'should not respond to turn_cachable_tweets' do
+    expect(Cache).not_to respond_to(:turn_cachable_tweets)
   end
 end
