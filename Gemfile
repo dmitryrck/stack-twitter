@@ -17,6 +17,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'twitter'
 gem 'uglifier', '>= 1.3.0'
 
+gem 'dotenv-rails', :groups => [:development, :test]
+
 group :development, :test do
   gem 'rspec-rails'
 end
