@@ -1,0 +1,145 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://CONSUMER_KEY:CONSUMER_SECRET@api.twitter.com/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      Accept:
+      - "*/*"
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Content-Type:
+      - application/x-www-form-urlencoded; charset=UTF-8
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '152'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 03 May 2016 13:54:17 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 03 May 2016 13:54:17 GMT
+      Ml:
+      - A
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_d
+      Set-Cookie:
+      - guest_id=v1%3A146228365749457564; Domain=.twitter.com; Path=/; Expires=Thu,
+        03-May-2018 13:54:17 UTC
+      Status:
+      - 200 OK
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Connection-Hash:
+      - 2a3e90ed6b0e21a7e832c7a8d8da941d
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      X-Response-Time:
+      - '145'
+      X-Transaction:
+      - b67ca48195b3edbe
+      X-Tsa-Request-Body-Time:
+      - '0'
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Ua-Compatible:
+      - IE=edge,chrome=1
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"token_type":"bearer","access_token":"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"}'
+    http_version: 
+  recorded_at: Tue, 03 May 2016 13:54:17 GMT
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=25&include_rts=true&screen_name=dmitrynix
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Authorization:
+      - Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '93'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 03 May 2016 13:54:18 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 03 May 2016 13:54:18 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_d
+      Set-Cookie:
+      - guest_id=v1%3A146228365852870748; Domain=.twitter.com; Path=/; Expires=Thu,
+        03-May-2018 13:54:18 UTC
+      Status:
+      - 404 Not Found
+      Strict-Transport-Security:
+      - max-age=631138519
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - d52ef13d35ceccfa9a70ba8472a37b76
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Remaining:
+      - '298'
+      X-Rate-Limit-Reset:
+      - '1462284417'
+      X-Response-Time:
+      - '136'
+      X-Transaction:
+      - 7be0d7344db89b8a
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"errors":[{"code":34,"message":"Sorry, that page does not exist."}]}'
+    http_version: 
+  recorded_at: Tue, 03 May 2016 13:54:18 GMT
+recorded_with: VCR 3.0.1

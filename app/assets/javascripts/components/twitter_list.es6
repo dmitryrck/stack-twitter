@@ -5,8 +5,18 @@ var TwitterList = React.createClass({
         <Tweet key={tweet.id} createdAt={tweet.createdAt} text={tweet.text} />
       );
     });
+
+    var flashMessage = "";
+
+    if(this.props.httpStatus != 200) {
+      flashMessage = (<div className="alert alert-danger" role="alert">{this.props.httpStatusMessage}</div>);
+    }
+
     return (
-      <div className="list-group">{twitterNodes}</div>
+      <div>
+        {flashMessage}
+        <div className="list-group">{twitterNodes}</div>
+      </div>
     );
   }
 });

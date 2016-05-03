@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitter.com/1.1/statuses/user_timeline.json?count=25&include_rts=true&screen_name=12345
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - TwitterRubyGem/5.16.0
+      Authorization:
+      - Bearer XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Authorization Required
+    headers:
+      Cache-Control:
+      - no-cache, no-store, must-revalidate, pre-check=0, post-check=0
+      Content-Disposition:
+      - attachment; filename=json.json
+      Content-Length:
+      - '99'
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Tue, 03 May 2016 13:55:30 GMT
+      Expires:
+      - Tue, 31 Mar 1981 05:00:00 GMT
+      Last-Modified:
+      - Tue, 03 May 2016 13:55:30 GMT
+      Pragma:
+      - no-cache
+      Server:
+      - tsa_d
+      Set-Cookie:
+      - guest_id=v1%3A146228373040733884; Domain=.twitter.com; Path=/; Expires=Thu,
+        03-May-2018 13:55:30 UTC
+      Status:
+      - 401 Unauthorized
+      Strict-Transport-Security:
+      - max-age=631138519
+      Www-Authenticate:
+      - OAuth realm="https://api.twitter.com"
+      X-Access-Level:
+      - read
+      X-Connection-Hash:
+      - dcd674b465f5ee4888652d464d6d5fcf
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Rate-Limit-Limit:
+      - '300'
+      X-Rate-Limit-Remaining:
+      - '297'
+      X-Rate-Limit-Reset:
+      - '1462284417'
+      X-Response-Time:
+      - '134'
+      X-Transaction:
+      - 2d82ed35c955b6f4
+      X-Twitter-Response-Tags:
+      - BouncerCompliant
+      X-Xss-Protection:
+      - 1; mode=block
+    body:
+      encoding: UTF-8
+      string: '{"request":"\/1.1\/statuses\/user_timeline.json","error":"Not authorized."}'
+    http_version: 
+  recorded_at: Tue, 03 May 2016 13:55:30 GMT
+recorded_with: VCR 3.0.1

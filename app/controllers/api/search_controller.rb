@@ -1,7 +1,13 @@
 class Api::SearchController < ApplicationController
   def by_username
     @account = Account.new account_params
-    @account.tweets = tweets(@account)
+    begin
+      @account.tweets = tweets(@account)
+    rescue Twitter::Error::Unauthorized
+      render json: { errors: 'Unauthorized' }, status: 403
+    rescue Twitter::Error::NotFound
+      render json: { errors: 'Account Not Found' }, status: 404
+    end
   end
 
   protected
