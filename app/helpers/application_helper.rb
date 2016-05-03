@@ -14,7 +14,7 @@ module ApplicationHelper
   end
 
   def replace_links(text)
-    text.gsub(%r_http(s)?\:\/\/[a-z0-9\.]*_) { |link|
+    text.gsub(%r_http(s)?\:\/\/[a-zA-Z0-9\.\/]*_) { |link|
       %[<a href="#{link}">#{link}</a>]
     }
   end

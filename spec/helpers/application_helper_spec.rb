@@ -13,5 +13,9 @@ describe ApplicationHelper do
     it 'returns https link' do
       expect(formatted_tweet_text('Go to https://example.com!')).to eq 'Go to <a href="https://example.com">https://example.com</a>!'
     end
+
+    it 'returns entire link inside the a tag' do
+      expect(formatted_tweet_text('go to https://t.co/aBc!')).to eq 'go to <a href="https://t.co/aBc">https://t.co/aBc</a>!'
+    end
   end
 end
