@@ -4,6 +4,8 @@ class Searcher
   LIMIT = 25
 
   class << self
+    mattr_accessor :client
+
     def client
       @@client
     end

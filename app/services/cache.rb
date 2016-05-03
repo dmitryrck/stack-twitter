@@ -2,8 +2,12 @@ class Cache
   CACHE_TIME = 18_000
 
   class << self
+    mattr_accessor :redis
+
     def redis
-      @@redis
+      if defined?(@@redis)
+        @@redis
+      end
     end
 
     def redis=(redis)
@@ -12,14 +16,16 @@ class Cache
   end
 
   def self.get(username, &block)
-    if current = redis.get(username)
+    if redis && current = redis.get(username)
       Marshal.load(current).map do |tweet|
         Tweet.new(tweet)
       end
     else
       tweets = block.call
 
-      redis.setex(username, CACHE_TIME, Marshal.dump(turn_cachable_tweets(tweets)))
+      if redis
+        redis.setex(username, CACHE_TIME, Marshal.dump(turn_cachable_tweets(tweets)))
+      end
 
       tweets
     end
