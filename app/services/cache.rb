@@ -5,9 +5,7 @@ class Cache
     mattr_accessor :redis
 
     def redis
-      if defined?(@@redis)
-        @@redis
-      end
+      @@redis ||= Redis.new(host: redis_uri.host, port: redis_uri.port, password: redis_uri.password)
     end
 
     def redis=(redis)
@@ -38,7 +36,11 @@ class Cache
         }
       end
     end
+
+    def redis_uri
+      @@redis_uri ||= URI.parse(ENV['REDISTOGO_URL'])
+    end
   end
 
-  private_class_method :turn_cachable_tweets
+  private_class_method :turn_cachable_tweets, :redis_uri
 end
