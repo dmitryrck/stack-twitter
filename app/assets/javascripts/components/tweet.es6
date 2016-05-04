@@ -1,7 +1,7 @@
-var Tweet = React.createClass({
-  render: function() {
-    var time = this.props.createdAt;
-    var timeAgo = jQuery.timeago(time);
+class Tweet extends React.Component {
+  render() {
+    let time = this.props.createdAt;
+    let timeAgo = jQuery.timeago(time);
 
     return (
       <div className="panel panel-default">
@@ -13,4 +13,4 @@ var Tweet = React.createClass({
       </div>
     );
   }
-});
+}

@@ -1,5 +1,15 @@
-var TwitterBox = React.createClass({
-  handleTwitterSubmit: function(username) {
+class TwitterBox extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      data: [],
+      httpStatus: 200,
+      httpStatusMessage: ''
+    };
+  }
+
+  _handleTwitterSubmit(username) {
     $.ajax({
       url: this.props.url,
       dataType: 'json',
@@ -20,16 +30,14 @@ var TwitterBox = React.createClass({
         });
       }.bind(this)
     });
-  },
-  getInitialState: function() {
-    return {data: [], httpStatus: 200, httpStatusMessage: ""};
-  },
-  render: function() {
+  }
+
+  render() {
     return (
       <div className="twitterBox">
-        <SearchForm onTwitterSubmit={this.handleTwitterSubmit} />
+        <SearchForm onTwitterSubmit={this._handleTwitterSubmit.bind(this)} />
         <TwitterList data={this.state.data} httpStatus={this.state.httpStatus} httpStatusMessage={this.state.httpStatusMessage} />
       </div>
     );
   }
-});
+}
